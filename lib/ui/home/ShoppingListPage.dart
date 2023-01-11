@@ -4,7 +4,7 @@ import 'package:flutter_e_commerce/ui/home/ShoppingListItem.dart';
 import 'package:flutter_e_commerce/util/Themes.dart';
 
 class ShoppingListPage extends StatelessWidget {
-  List<Product> productsList;
+  List<Product>? productsList;
 
   @override
   Widget build(BuildContext context) {
@@ -41,11 +41,11 @@ class ShoppingListPage extends StatelessWidget {
       child: new GridView.count(
         crossAxisCount: 2,
         shrinkWrap: true,
-        children: productsList
-            .map(
+        children: productsList !=null ? productsList!
+          .map(
               (product) => ShoppingListItem(product: product),
             )
-            .toList(),
+            .toList() : [],
       ),
     );
   }

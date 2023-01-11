@@ -5,7 +5,7 @@ import 'package:flutter_e_commerce/ui/detail/DetailPage.dart';
 class ShoppingListItem extends StatelessWidget {
   final Product product;
 
-  const ShoppingListItem({@required this.product});
+  const ShoppingListItem({required this.product});
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +33,7 @@ class ListItemStack extends StatelessWidget {
       elevation: 8.0,
       child: InkWell(
         onTap: () {
-          print(product.name + " tapped");
+          print(product.name ?? '' + " tapped");
           Navigator.of(context).push(
               new MaterialPageRoute(builder: (context) => new DetailPage()));
         },
@@ -106,7 +106,7 @@ class ListItemImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new Image.network(
-      product.imageUrl,
+      product.imageUrl ?? '',
       fit: BoxFit.cover,
     );
   }
@@ -130,7 +130,7 @@ class ListItemName extends StatelessWidget {
           padding: const EdgeInsets.all(4.0),
           child: Center(
             child: new Text(
-              product.name,
+              product.name ?? '',
               style: TextStyle(
                 fontSize: 18.0,
                 color: Colors.white,

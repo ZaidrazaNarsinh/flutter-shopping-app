@@ -64,7 +64,7 @@ class StatefulShoppingListPageState extends State<StatefulShoppingListPage> {
       productsList = Constants.productsList();
     } else {
       productsList.sort(
-        (a, b) => a.name.compareTo(b.name),
+        (a, b) => a.name!.compareTo(b.name!),
       );
     }
     isSorted = !isSorted;
